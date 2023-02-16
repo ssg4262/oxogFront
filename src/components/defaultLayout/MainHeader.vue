@@ -1,7 +1,7 @@
 <template>
   <div style="background-color: rgba(39, 41, 52); color: #fff; font-size: 16px">
     <!--nav start-->
-    <nav class="py-2 bg-light border-bottom bg-transparent shadow-lg">
+    <nav class="py-2 bg-light bg-transparent shadow-lg">
       <div class="container d-flex flex-wrap">
         <router-link to="/">
           <img

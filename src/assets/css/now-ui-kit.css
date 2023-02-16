@@ -5415,22 +5415,6 @@ img {
   opacity: 1;
 }
 
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item.active {
-  display: block;
-}
-
-.carousel .carousel-inner {
-  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 0.1875rem;
-}
-
-.carousel .card {
-  max-width: 650px;
-  margin: 60px auto;
-  display: block;
-}
 
 .footer {
   padding: 24px 0;

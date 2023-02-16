@@ -2,12 +2,7 @@
   <div>
     <div
       class="heading"
-      style="
-        background-color: rgba(39, 41, 52);
-        color: #fff;
-        border-top: #ad91ff solid !important;
-        font-size: 16px;
-      "
+      style="background-color: rgba(39, 41, 52); color: #fff; font-size: 16px"
     >
       <div class="container-sm">
         <div class="container col-xxl-8 px-4 py-1"></div>
@@ -99,18 +94,26 @@
 </template>
 
 <script>
+import { mapState } from "vuex"; // 뷰엑스 제공 속성
 export default {
   data() {
     return {
       users: [],
+      jobs: [],
       communityList: [],
     };
   },
+  computed: {},
   created() {
-    //요청
-    this.$store.dispatch("FETCH_NEWS");
+    const store = this.$store;
+    const vm = this;
+
+    //vuex store 에서 api 호출값 dispatch 로 가져오기
+    vm.$store.dispatch("FETCH_NEWS");
+    vm.$store.dispatch("FETCH_JOBS");
     //변수 담기
-    this.users = this.$store.state.news;
+    vm.users = store.state.news;
+    console.log(vm.users);
   },
 };
 </script>
