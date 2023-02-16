@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex"; // 뷰엑스 제공 속성
+import { mapState, mapGetters } from "vuex"; // 뷰엑스 제공 속성
 export default {
   data() {
     return {
@@ -103,7 +103,17 @@ export default {
       communityList: [],
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["fetchNews"]),
+    // ...=배열객체를 풀어서 저장해줌 es6문법
+    //mapState
+    // ...mapState({
+    //   news: (state) => state.news,
+    // }),
+    // news() {
+    //   return this.$store.state.news;
+    // },
+  },
   created() {
     const store = this.$store;
     const vm = this;

@@ -1,6 +1,9 @@
+//import
 import { createStore } from 'vuex'
 //api import
-import { fetchNewsList,fetchJobsList } from "../api/index.js"; 
+
+import mutations from './mutations.js';
+import actions from './actions.js';
 
 // vuex 실행 프로세스 actions 에서 api호출 mutations 거친다음 state 에담김
 // actions => mutations => state
@@ -14,34 +17,11 @@ export const store = createStore({
         //validate
         validateEmail:/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
     },
-    mutations:{ //mutations = state에 넣어줌
-        SET_NEWS(state,data){ // state = state 객체받기 , context.commit한 객체 뒤에 서술 
-            state.news = data
-        },
-        SET_JOBS(state,data){
-            state.jobs = data
+    getters:{ //컴퓨티드랑 동일한 속성 다만 스토어에 있음 // 화면에서 디스패치를 안해도됨
+        fetchNews(state){
+            return state.news
         }
-        
     },
-    actions:{ //actions =  import 한 api 호출
-        FETCH_NEWS(context){
-            fetchNewsList()
-            .then(rs => {
-                context.commit('SET_NEWS',rs.data); // context.commit();으로 뮤테이션에 값담기
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        },
-        FETCH_JOBS({commit}){//컨텍스트 객체안에 commit 인자(속성) 바로 가져오기
-            fetchJobsList()
-            .then(({data})=>{ //({data}) 로 바로 받기
-                commit('SET_JOBS',data)
-                console.log(data)
-            })
-            .catch(err=>{
-                console.log(err+"jobsError")
-            })
-        }
-    }
+    mutations,//mutations = state에 넣어줌  
+    actions
 })
