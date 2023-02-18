@@ -5,6 +5,7 @@ import { createStore } from 'vuex'
 import mutations from './mutations.js';
 import actions from './actions.js';
 
+
 // vuex 실행 프로세스 actions 에서 api호출 mutations 거친다음 state 에담김
 // actions => mutations => state
 // actions api호출 mutaions 에 commit => mutations 함수로 값담기 => state 데이터 모델에 값저장

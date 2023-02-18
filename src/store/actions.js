@@ -16,7 +16,6 @@ export default {
             fetchJobsList()
             .then(({data})=>{ //({data}) 로 바로 받기
                 commit('SET_JOBS',data)
-                console.log(data)
             })
             .catch(err=>{
                 console.log(err+"jobsError")

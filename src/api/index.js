@@ -14,6 +14,9 @@ function fetchNewsList(){
 function fetchJobsList(){
     return axios.get(config.baseUrl+"jobs/1.json")
 }
+function fetchAskList(){
+    return axios.get(config.baseUrl+"ask/1.json")
+}
 //커뮤니티 리스트 조회 api
 function communityList(){
     return null;

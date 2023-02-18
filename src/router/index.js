@@ -24,6 +24,7 @@ const routes =
             path:'/userView',
             component:UserView
         }
+
  
     ]
 
