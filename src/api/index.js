@@ -25,5 +25,6 @@ function communityList(){
 // 호출값 export 해줘야 다른 파일에서 불러오기가능!
 export {
     fetchNewsList,
-    fetchJobsList
+    fetchJobsList,
+    fetchAskList
 }

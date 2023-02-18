@@ -4,5 +4,8 @@ export default {
     },
     SET_JOBS(state,data){
         state.jobs = data
+    },
+    SET_ASK(state,data){
+        state.ask=data
     }
 }

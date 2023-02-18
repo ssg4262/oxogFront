@@ -1,5 +1,5 @@
 // api 를 호출해야해서 api import
-import { fetchNewsList,fetchJobsList } from "../api/index.js"; 
+import { fetchNewsList,fetchJobsList,fetchAskList } from "../api/index.js"; 
 
 export default {
     //actions =  import 한 api 호출
@@ -20,5 +20,13 @@ export default {
             .catch(err=>{
                 console.log(err+"jobsError")
             })
+        },
+        FETCH_ASK(context){
+            fetchAskList() // api 호출
+            .then(rs =>{//mutaions에 커밋하기
+                context.commit("SET_ASK",rs.data) // "SET_ASK = mutaions 매핑명"
+            }).catch(err=>{
+                console.log(err)
+            }) 
         }
 }
