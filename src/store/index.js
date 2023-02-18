@@ -1,6 +1,10 @@
+//import
 import { createStore } from 'vuex'
 //api import
-import { fetchNewsList } from "../api/index.js"; 
+
+import mutations from './mutations.js';
+import actions from './actions.js';
+
 
 // vuex 실행 프로세스 actions 에서 api호출 mutations 거친다음 state 에담김
 // actions => mutations => state
@@ -10,23 +14,19 @@ export const store = createStore({
     state:{ // state = 데이터 모델
         //model
         news:[],
+        jobs:[],
+        ask:[],
+        //user
+        userDetail:[],
+        commentItem:[],
         //validate
-        validateEmail: /^[A-Za-z0-9_\\.\\-]+@[A-Za-z0-9\\-]+\.[A-Za-z0-9\\-]+/
+        validateEmail:/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
     },
-    mutations:{
-        SET_NEWS(state,data){ // state = state 객체받기 , context.commit한 객체 뒤에 서술 
-            state.news = data
+    getters:{ //컴퓨티드랑 동일한 속성 다만 스토어에 있음 // 화면에서 디스패치를 안해도됨
+        fetchNews(state){
+            return state.news
         }
     },
-    actions:{ //actions =  import 한 api 호출 관리
-        FETCH_NEWS(context){
-            fetchNewsList()
-            .then(rs => {
-                context.commit('SET_NEWS',rs.data); // context.commit();으로 뮤테이션에 값담기
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        }
-    }
+    mutations,//mutations = state에 넣어줌  
+    actions
 })

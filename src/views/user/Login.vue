@@ -2,11 +2,7 @@
   <div>
     <div
       class="heading"
-      style="
-        background-color: rgba(39, 41, 52);
-        color: #fff;
-        border-top: #ad91ff solid !important;
-      "
+      style="background-color: rgba(39, 41, 52); color: #fff"
     ></div>
     <!---->
     <div

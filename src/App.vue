@@ -17,7 +17,4 @@ export default {
 };
 </script>
 
-<style>
-@import "./assets/css/main.css";
-@import "./assets/css/now-ui-kit.css";
-</style>
+<style></style>
