@@ -15,8 +15,14 @@
           <td>
             <a v-bind:href="news.url">{{ news.title }}</a>
           </td>
-          <td>{{ news.time_ago }}</td>
-          <td>{{ news.user }}</td>
+          <td>
+            <small>{{ news.time_ago }} </small>
+          </td>
+          <td>
+            <router-link v-bind:to="'/user/' + news.user">
+              <small>{{ news.user }}</small>
+            </router-link>
+          </td>
         </tr>
       </tbody>
     </table>

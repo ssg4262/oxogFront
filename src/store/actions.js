@@ -1,5 +1,10 @@
 // api 를 호출해야해서 api import
-import { fetchNewsList,fetchJobsList,fetchAskList } from "../api/index.js"; 
+import { fetchNewsList,
+         fetchJobsList,
+         fetchAskList,
+         userDetail,
+         fetchCommentItem } 
+        from "../api/index.js"; 
 
 export default {
     //actions =  import 한 api 호출
@@ -28,5 +33,24 @@ export default {
             }).catch(err=>{
                 console.log(err)
             }) 
+        },
+        //user
+        FETCH_USERDETAIL(context,userName){
+            userDetail(userName)
+            .then(rs=>{
+                context.commit('SET_USERDETAIL',rs.data)
+            })
+            .catch(err=>{
+                console.log('SET_USERDETAIL'+err)
+            })
+        },
+        //item
+        FETCH_ITEM({commit},itemId){
+            fetchCommentItem(itemId) //axios call
+            .then(rs=>{
+                commit('SET_COMMENTITEM',rs.data)
+            }).catch(err=>{
+                console.log(err+'SET_COMMENTITEM')
+            })
         }
 }

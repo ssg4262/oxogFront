@@ -17,6 +17,14 @@ function fetchJobsList(){
 function fetchAskList(){
     return axios.get(config.baseUrl+"ask/1.json")
 }
+
+//유저 조회 api
+function userDetail(userName){
+    return axios.get(config.baseUrl+"user/"+ userName + ".json")
+}
+function fetchCommentItem(itemId){
+    return axios.get(config.baseUrl+'item/'+itemId+'.json')
+}
 //커뮤니티 리스트 조회 api
 function communityList(){
     return null;
@@ -26,5 +34,9 @@ function communityList(){
 export {
     fetchNewsList,
     fetchJobsList,
-    fetchAskList
+    fetchAskList,
+    //user
+    userDetail,
+    //item
+    fetchCommentItem
 }

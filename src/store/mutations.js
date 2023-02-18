@@ -6,6 +6,12 @@ export default {
         state.jobs = data
     },
     SET_ASK(state,data){
-        state.ask=data
+        state.ask = data
+    },
+    SET_USERDETAIL(state,data){
+        state.userDetail = data
+    },
+    SET_COMMENTITEM(state,data){
+        state.commentItem = data
     }
 }

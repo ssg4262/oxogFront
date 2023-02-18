@@ -5,6 +5,8 @@ import NewsView from '../views/user/NewsView.vue'
 import JobsView from '../views/user/JobsView.vue'
 import UserView from '../views/user/UserView.vue'
 import AskView from '../views/user/AskView.vue'
+import ItemView from '../views/user/ItemView.vue'
+
 
 const routes = 
         [
@@ -28,14 +30,18 @@ const routes =
         },
         //user
         {
-            path:'/userView',
+            path:'/user/:id',//id 파라미터로 넘기기
             component:UserView
         },
         {
             path:'/login',
             component:Login
         },
-      
+        //item
+        {
+            path:'/item/:id',//id 파라미터로 넘기기
+            component:ItemView
+        },
 
  
     ]
